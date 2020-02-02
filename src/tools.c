@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 01:09:26 by ybenbrai          #+#    #+#             */
-/*   Updated: 2019/12/04 20:38:58 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 22:59:31 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,29 +18,29 @@ int    keypress(int key, void *param)
 
     data = (void*)param;
     if (key == 4)
-        data->quality += 1;
+        data->mandel->quality += 1;
     else if (key == 37)
-        data->quality -= 1;
+        data->mandel->quality -= 1;
     if (key == 8)
-            data->hexa += 1;
+            data->mandel->hexa += 1;
     if (key == 69)
         {
-                data->zoom_in -= 0.05;
+                data->mandel->zoom_in -= 0.05;
         }
             
     if (key == 78)
     {
-                data->zoom_in += 0.05;
+                data->mandel->zoom_in += 0.05;
         
     }
     if (key == 123) 
-            data->right_left += 0.05;
+            data->mandel->right_left += 0.05;
     if (key == 124)
-            data->right_left -= 0.05;
+            data->mandel->right_left -= 0.05;
     if (key == 126)
-            data->up_down += 0.05;
+            data->mandel->up_down += 0.05;
     if (key == 125)
-            data->up_down -= 0.05;
+            data->mandel->up_down -= 0.05;
     mandelbrot(data);
     return (0);     
 }
@@ -53,13 +53,13 @@ int     mouse_press(int button, int x, int y, void *param)
     {
   
         // printf("hey\n");
-        data->zoom_in += 0.05;
-        data->right_left += 0.05;
+        data->mandel->zoom_in += 0.05;
+        data->mandel->right_left += 0.05;
     }
     else if (button == 5)
     {
-        data->zoom_in -= 0.05;
-        data->right_left -= 0.05;
+        data->mandel->zoom_in -= 0.05;
+        data->mandel->right_left -= 0.05;
     }
     
     mandelbrot(data);

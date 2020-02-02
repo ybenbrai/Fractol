@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2019/12/04 19:52:27 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 22:57:28 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,43 @@
 #define white 0xffffff
 #define max 30
 
-
-typedef struct	s_data
+typedef struct	s_mlx
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
-
 	void		*img_ptr;
 	int			*img_data;
+
+}				t_mlx;
+
+typedef struct	s_mandel
+{
+	int			row;
+	int			col;
+	double		c_re;
+	double		right_left;
+	double		zoom_in;
+	double		c_im;
+	double		up_down;
+	int			iteration;
+	double		x;
+	double		y;
+	double		x_new;
+	int			quality;
+	int			hexa;
+	int			octa;
+	
+}				t_mandel;
+
+typedef struct	s_data
+{
+
 	int			size_l;
 	int			bpp;
 	int			endian;
-	double			right_left;
-	double			up_down;
-	double			zoom_in;
-	int row;
-	int col;
-	int hexa;
-	int octa;
-	double c_re;
 	double test;
-	double c_im;
-	double x;
-	double y;
-	double x_new;
-	int iteration;
-	int quality;
+	t_mlx *mlx;
+	t_mandel *mandel;
 }				t_data;
 
 void	mandelbrot(t_data *data);

@@ -6,12 +6,12 @@
 #    By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/23 19:48:26 by kbahrar           #+#    #+#              #
-#    Updated: 2019/12/04 04:54:10 by ybenbrai         ###   ########.fr        #
+#    Updated: 2020/02/02 22:43:59 by ybenbrai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-SRC =  src/main.c src/tools.c
+SRC =  src/main.c src/tools.c src/mandelbrot.c src/core.c
 LIBF = libft/
 all:$(NAME)
 
