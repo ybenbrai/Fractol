@@ -6,14 +6,26 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/02 23:34:22 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:35:36 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
+void    mandel_init(t_data *data)
+{
+    data = (t_data *)malloc(sizeof(t_data));
+	data->mlx = (t_mlx *)malloc(sizeof(t_mlx));
+	data->mandel = (t_mandel *)malloc(sizeof(t_mandel));
+	data->mandel->quality = 100;
+	data->mandel->hexa = 1;
+	data->mandel->octa = 8;
+	data->mandel->right_left = 2.0;
+	data->mandel->zoom_in = 4.0;
+	data->mandel->up_down = 2.0;
+}
 void	mandelbrot(t_data *data)
 {
+    mandel_init(data);
 	data->mandel->row = -1;
 	while (++data->mandel->row < height)
 	{

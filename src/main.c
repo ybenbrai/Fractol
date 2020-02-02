@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:21 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/02 22:59:05 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:35:45 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,6 @@
 int	main(int c, char **v)
 {
 	t_data *data;
-
-	data = (t_data *)malloc(sizeof(t_data));
-	data->mlx = (t_mlx *)malloc(sizeof(t_mlx));
-	data->mandel = (t_mandel *)malloc(sizeof(t_mandel));
-	data->mandel->quality = 100;
-	data->mandel->hexa = 1;
-	data->mandel->octa = 8;
-	data->mandel->right_left = 2.0;
-	data->mandel->zoom_in = 4.0;
-	data->mandel->up_down = 2.0;
 	
 	if (!c && !v)
 	{
