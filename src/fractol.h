@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/02 22:57:28 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:32:44 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,15 @@ typedef struct	s_mandel
 	int			quality;
 	int			hexa;
 	int			octa;
-	
+		double MinRe ;
+double MaxRe ;
+double MinIm ;
+double MaxIm;
+double Re_factor;
+double Im_factor;
+unsigned MaxIterations;
 }				t_mandel;
+
 
 typedef struct	s_data
 {
