@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/02 23:36:11 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:38:50 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,6 @@ typedef struct	s_mandel
 	int			octa;
 	
 }				t_mandel;
-typedef struct	s_test
-{
-	int			row;
-	int			col;
-	double		c_re;
-	double		right_left;
-	double		zoom_in;
-	double		c_im;
-	double		up_down;
-	int			iteration;
-	double		x;
-	double		y;
-	double		x_new;
-	int			quality;
-	int			hexa;
-	int			octa;
-	
-}				t_test;
 
 typedef struct	s_data
 {
@@ -87,5 +69,4 @@ typedef struct	s_data
 void	mandelbrot(t_data *data);
 int    keypress(int key, void *param);
 int     mouse_press(int button, int x, int y, void *param);
-// void	ft_mb_init(t_data *data);
 #endif

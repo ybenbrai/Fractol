@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:21 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/02 23:35:45 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/02 23:39:05 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 int	main(int c, char **v)
 {
 	t_data *data;
+	data = (t_data *)malloc(sizeof(t_data));
+	data->mlx = (t_mlx *)malloc(sizeof(t_mlx));
+	data->mandel = (t_mandel *)malloc(sizeof(t_mandel));
 	
 	if (!c && !v)
 	{
