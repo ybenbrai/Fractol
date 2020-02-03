@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 01:09:26 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 17:30:16 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:40:42 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,22 @@ int     mouse_press(int button, int x, int y, void *param)
     if (button == 4)
     {
   
-        // printf("hey\n");
-        data->mandel.zoom_in += 0.05;
-        data->mandel.right_left += 0.05;
+        printf("hey ### \n");
+        
+        data->mandel.zoom_in += 1;
+        data->mandel.right_left += 1;
+
+        printf("%f\n", data->mandel.right_left);
     }
     else if (button == 5)
     {
-        data->mandel.zoom_in -= 0.05;
-        data->mandel.right_left -= 0.05;
+        printf("hey --- \n");
+
+        data->mandel.zoom_in -= 1;
+        data->mandel.right_left -= 1;
+        
+        printf("%f\n", data->mandel.right_left);
+
     }
     
     mandelbrot(data);

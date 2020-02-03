@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 17:28:46 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:48:16 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ t_data    *mandel_init(t_data *data)
 
 void	mandelbrot(t_data *data)
 {
-  data =  mandel_init(data);
+ 
+  
 	while (++data->mandel.row < height)
 	{
 		data->mandel.col = -1;

@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 17:25:47 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:49:19 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ typedef struct	s_data
 	t_mandel 	mandel;
 }				t_data;
 
-void	mandelbrot(t_data *data);
-int    keypress(int key, void *param);
-int     mouse_press(int button, int x, int y, void *param);
+void		mandelbrot(t_data *data);
+int			keypress(int key, void *param);
+t_data		*mandel_init(t_data *data);
+int			mouse_press(int button, int x, int y, void *param);
 #endif
