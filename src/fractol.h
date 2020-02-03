@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:25:22 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:32:17 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,14 @@
 #define white 0xffffff
 #define max 30
 
+typedef struct	s_mlx
+{
+	void		*mlx_ptr;
+	void		*win_ptr;
+	void		*img_ptr;
+	int			*img_data;
+	
+}				t_mlx;
 typedef struct	s_data
 {
 
@@ -48,11 +56,9 @@ typedef struct	s_data
 	int			quality;
 	int			hexa;
 	int			octa;
-	void		*mlx_ptr;
-	void		*win_ptr;
-	void		*img_ptr;
-	int			*img_data;
+	t_mlx		mlx;
 }				t_data;
+
 
 void		mandelbrot(t_data *data);
 int			keypress(int key, void *param);

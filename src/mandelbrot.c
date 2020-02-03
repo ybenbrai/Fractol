@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:23:16 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:33:42 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ void	mandelbrot(t_data *data)
         	}
 			if (data->iteration < data->quality)
 			{
-				data->img_data[data->row * width + data->col] = (data->iteration << data->hexa) | (data->iteration << data->octa) | (data->iteration);
+				data->mlx.img_data[data->row * width + data->col] = (data->iteration << data->hexa) | (data->iteration << data->octa) | (data->iteration);
 
 			}
         	else 
-				data->img_data[data->row * width + data->col] = 0x000000;
+				data->mlx.img_data[data->row * width + data->col] = 0x000000;
     }
 
 	}
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
+	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, data->mlx.img_ptr, 0, 0);
 }
