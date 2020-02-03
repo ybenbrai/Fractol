@@ -6,12 +6,13 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/02 23:42:48 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:05:22 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-void    mandel_init(t_data *data)
+
+t_data    *mandel_init(t_data *data)
 {
     
 	data->mandel->quality = 100;
@@ -21,10 +22,12 @@ void    mandel_init(t_data *data)
 	data->mandel->zoom_in = 4.0;
 	data->mandel->up_down = 2.0;
 	data->mandel->row = -1;
+	return(data);
 }
+
 void	mandelbrot(t_data *data)
 {
-    mandel_init(data);
+  data =  mandel_init(data);
 	while (++data->mandel->row < height)
 	{
 		data->mandel->col = -1;
