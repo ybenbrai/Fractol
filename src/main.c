@@ -6,23 +6,26 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:21 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:24:53 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:27:29 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-int	main(int c, char **v)
+void	mandelInit(t_data *data)
 {
-	t_data *data;
-
-	data = (t_data *)malloc(sizeof(t_data));
 	data->quality = 100;
 	data->hexa = 1;
 	data->octa = 8;
 	data->right_left = 2.0;
 	data->zoom_in = 4.0;
 	data->up_down = 2.0;
+}
+int	main(int c, char **v)
+{
+	t_data *data;
+
+	data = (t_data *)malloc(sizeof(t_data));
+	mandelInit(data);
 
 	if (!c && !v)
 	{
