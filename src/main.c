@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:21 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 17:48:29 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:00:14 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,12 @@ int	main(int c, char **v)
 {
 	t_data data;
 
-
+	if(!(data = (t_data *)malloc(sizeof(t_data))))
+		puts("ERROR IN ALLCOATION");
+	if(!(datamlx = (t_mlx *)malloc(sizeof(t_mlx))))
+		puts("ERROR IN ALLCOATION");
+	if(!(data->mandel = (t_mandel *)malloc(sizeof(t_mandel))))
+		puts("ERROR IN ALLCOATION");
 	// data = NULL;	
 	// data->mlx = NULL;
 	// data->mandel = NULL;
@@ -34,7 +39,6 @@ int	main(int c, char **v)
 		return (0);
 	// data = corAlloc(data);
 	mlxInit(&data);
-	mandel_init(&data);
 	mandelbrot(&data);
 	
 	mlx_loop(data.mlx.mlx_ptr);
