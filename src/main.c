@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:21 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 17:03:56 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:21:43 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ t_data	*mlxInit(t_data *data)
 	mlx_hook(data->mlx->win_ptr, 4, 0, mouse_press, data);
 	return(data);
 }
-t_data	*corAlloc(t_data *data)
-{
-	if(!(data = (t_data *)malloc(sizeof(t_data))))
-		return(NULL);
-	if(!(data->mlx = (t_mlx *)malloc(sizeof(t_mlx))))
-		return(NULL);
-	if(!(data->mandel = (t_mandel *)malloc(sizeof(t_mandel))))
-		return(NULL);
-		return(data);
-}
+
 int	main(int c, char **v)
 {
 	t_data *data;
-	
+
+	if(!(data = (t_data *)malloc(sizeof(t_data))))
+		puts("ERROR IN ALLCOATION");
+	if(!(data->mlx = (t_mlx *)malloc(sizeof(t_mlx))))
+		puts("ERROR IN ALLCOATION");
+	if(!(data->mandel = (t_mandel *)malloc(sizeof(t_mandel))))
+		puts("ERROR IN ALLCOATION");
+	// data = NULL;	
+	// data->mlx = NULL;
+	// data->mandel = NULL;
 	if (!c && !v)
 		return (0);
-	data = corAlloc(data);
+	// data = corAlloc(data);
 	data = mlxInit(data);
 	mandelbrot(data);
 	
