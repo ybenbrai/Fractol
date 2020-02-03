@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:42:29 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:53:28 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,14 @@
 #include "../libft/libft.h"
 #include <mlx.h>
 
-
+//defining the width and heigh of the windows that display the image
 # define width 800
 # define height 600
-#define black 0x000000
-#define white 0xffffff
-#define max 30
+
+//defining some colors to make it possible to see with bare eyes
+# define black 0x000000
+# define white 0xffffff
+# define max 30
 
 // mlx structure
 typedef struct	s_mlx
@@ -70,7 +72,16 @@ typedef struct	s_core
 }				t_core;
 
 
-void		mandelbrot(t_core *core);
-int			keypress(int key, void *param);
-int			mouse_press(int button, int x, int y, void *param);
+//core functions
+void	mlxInit(t_core *core);
+
+//mandelbrot functions
+void			mandelInit(t_core *core);
+void			mandelbrot(t_core *core);
+
+//keyboard binding functions
+int				keypress(int key, void *param);
+
+//mouse binding function
+int				mouse_press(int button, int x, int y, void *param);
 #endif

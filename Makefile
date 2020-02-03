@@ -6,12 +6,12 @@
 #    By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/23 19:48:26 by kbahrar           #+#    #+#              #
-#    Updated: 2020/02/03 17:59:02 by ybenbrai         ###   ########.fr        #
+#    Updated: 2020/02/03 18:54:14 by ybenbrai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-SRC =  src/main.c src/tools.c src/mandelbrot.c
+SRC =  src/main.c src/tools.c src/mandelbrot.c src/coreTools.c src/mandelbrotTools.c
 LIBF = libft/
 
 OBJS = $(patsubst %.c, %.o, $(SRC))
