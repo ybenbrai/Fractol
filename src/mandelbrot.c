@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:33:42 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:43:51 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 
 
-void	mandelbrot(t_data *data)
+void	mandelbrot(t_core *core)
 {
-	data->row = -1;
-	while (++data->row < height)
+	core->mandel.row = -1;
+	while (++core->mandel.row < height)
 	{
-		data->col = -1;
-		while(++data->col < width)
+		core->mandel.col = -1;
+		while(++core->mandel.col < width)
 		{
-			data->c_re  = (data->col - width / data->right_left) * data->zoom_in / width;
-        	data->c_im  = (data->row - height / data->up_down) * data->zoom_in / width;
-        	data->x = 0;
-			data->y = 0;
-        	data->iteration = 0;
-        	while (data->x * data->x + data->y * data->y <= 4 && data->iteration < data->quality)
+			core->mandel.c_re  = (core->mandel.col - width / core->mandel.right_left) * core->mandel.zoom_in / width;
+        	core->mandel.c_im  = (core->mandel.row - height / core->mandel.up_down) * core->mandel.zoom_in / width;
+        	core->mandel.x = 0;
+			core->mandel.y = 0;
+        	core->mandel.iteration = 0;
+        	while (core->mandel.x * core->mandel.x + core->mandel.y * core->mandel.y <= 4 && core->mandel.iteration < core->mandel.quality)
 			{
-            	data->x_new = (data->x * data->x) - (data->y * data->y) + data->c_re;
-            	data->y = (2 * data->x * data->y) + data->c_im;
-            	data->x = data->x_new;
-            	data->iteration++;
+            	core->mandel.x_new = (core->mandel.x * core->mandel.x) - (core->mandel.y * core->mandel.y) + core->mandel.c_re;
+            	core->mandel.y = (2 * core->mandel.x * core->mandel.y) + core->mandel.c_im;
+            	core->mandel.x = core->mandel.x_new;
+            	core->mandel.iteration++;
         	}
-			if (data->iteration < data->quality)
+			if (core->mandel.iteration < core->mandel.quality)
 			{
-				data->mlx.img_data[data->row * width + data->col] = (data->iteration << data->hexa) | (data->iteration << data->octa) | (data->iteration);
+				core->mlx.img_core[core->mandel.row * width + core->mandel.col] = (core->mandel.iteration << core->mandel.hexa) | (core->mandel.iteration << core->mandel.octa) | (core->mandel.iteration);
 
 			}
         	else 
-				data->mlx.img_data[data->row * width + data->col] = 0x000000;
+				core->mlx.img_core[core->mandel.row * width + core->mandel.col] = 0x000000;
     }
 
 	}
-	mlx_put_image_to_window(data->mlx.mlx_ptr, data->mlx.win_ptr, data->mlx.img_ptr, 0, 0);
+	mlx_put_image_to_window(core->mlx.mlx_ptr, core->mlx.win_ptr, core->mlx.img_ptr, 0, 0);
 }

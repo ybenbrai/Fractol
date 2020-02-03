@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:32:17 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 18:42:29 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,22 @@
 #define white 0xffffff
 #define max 30
 
+// mlx structure
 typedef struct	s_mlx
 {
 	void		*mlx_ptr;
 	void		*win_ptr;
 	void		*img_ptr;
-	int			*img_data;
+	int			*img_core;
+	int			bpp;
+	int			size_l;
+	int			endian;
 	
 }				t_mlx;
-typedef struct	s_data
-{
 
-	int			size_l;
-	int			bpp;
-	int			endian;
-	double 		test;
+//mandelbrot structure
+typedef struct	s_mandel
+{
 	int			row;
 	int			col;
 	double		c_re;
@@ -56,11 +57,20 @@ typedef struct	s_data
 	int			quality;
 	int			hexa;
 	int			octa;
+
+	
+}				t_mandel;
+
+//the core structure
+typedef struct	s_core
+{
+
 	t_mlx		mlx;
-}				t_data;
+	t_mandel	mandel;
+}				t_core;
 
 
-void		mandelbrot(t_data *data);
+void		mandelbrot(t_core *core);
 int			keypress(int key, void *param);
 int			mouse_press(int button, int x, int y, void *param);
 #endif
