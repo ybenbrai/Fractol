@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:43:51 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 19:07:13 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	mandelbrot(t_core *core)
 	while (++core->mandel.row < height)
 	{
 		core->mandel.col = -1;
-		while(++core->mandel.col < width)
+		while(++core->mandel.col < width )
 		{
 			core->mandel.c_re  = (core->mandel.col - width / core->mandel.right_left) * core->mandel.zoom_in / width;
         	core->mandel.c_im  = (core->mandel.row - height / core->mandel.up_down) * core->mandel.zoom_in / width;

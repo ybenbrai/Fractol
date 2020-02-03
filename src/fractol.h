@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:53:28 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 19:09:08 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 //defining the width and heigh of the windows that display the image
 # define width 800
-# define height 600
+# define height 450
 
 //defining some colors to make it possible to see with bare eyes
 # define black 0x000000
