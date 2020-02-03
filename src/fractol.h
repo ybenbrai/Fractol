@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 17:03:58 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2020/02/03 17:25:47 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ typedef struct	s_data
 	int			size_l;
 	int			bpp;
 	int			endian;
-	double test;
-	t_mlx *mlx;
-	t_mandel *mandel;
+	double 		test;
+	t_mlx 		mlx;
+	t_mandel 	mandel;
 }				t_data;
 
 void	mandelbrot(t_data *data);
