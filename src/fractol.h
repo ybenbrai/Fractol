@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 19:09:08 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2022/10/25 21:52:56 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,20 +64,20 @@ typedef struct	s_mandel
 }				t_mandel;
 
 //the core structure
-typedef struct	s_core
+typedef struct	s_fractol
 {
 
 	t_mlx		mlx;
 	t_mandel	mandel;
-}				t_core;
+}				t_fractol;
 
 
 //core functions
-void	mlxInit(t_core *core);
+void	mlxInit(t_fractol *fractol);
 
 //mandelbrot functions
-void			mandelInit(t_core *core);
-void			mandelbrot(t_core *core);
+void			mandelInit(t_fractol *fractol);
+void			mandelbrot(t_fractol *fractol);
 
 //keyboard binding functions
 int				keypress(int key, void *param);
