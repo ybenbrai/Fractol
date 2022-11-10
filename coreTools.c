@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrotTools.c                                  :+:      :+:    :+:   */
+/*   coreTools.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/03 18:49:23 by ybenbrai          #+#    #+#             */
-/*   Updated: 2020/02/03 18:55:50 by ybenbrai         ###   ########.fr       */
+/*   Created: 2020/02/03 18:52:48 by ybenbrai          #+#    #+#             */
+/*   Updated: 2022/11/10 23:11:19 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-// function to initialise the structure variables of mandelbrot function
-void	mandelInit(t_core *core)
+void	mlxInit(t_mlx *mlx)
 {
-	core->mandel.quality = 100;
-	core->mandel.hexa = 1;
-	core->mandel.octa = 8;
-	core->mandel.right_left = 2;
-	core->mandel.zoom_in = 4;
-	core->mandel.up_down = 2;
+	mlx->mlx_ptr = mlx_init();
+
+	mlx->win_ptr = mlx_new_window(mlx->mlx_ptr, WIDTH, HEIGHT, "fractol");
+	mlx->img_ptr = mlx_new_image(mlx->mlx_ptr, WIDTH, HEIGHT);
+
+	mlx->img_core = (int *)mlx_get_data_addr(mlx->img_ptr, &mlx->bpp, &mlx->size_l, &mlx->endian);
+	mlx_loop(mlx->mlx_ptr);
 }
