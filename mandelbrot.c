@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/02 22:38:40 by ybenbrai          #+#    #+#             */
-/*   Updated: 2022/11/10 23:43:03 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2022/11/11 17:54:07 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,16 @@
 
 void	mandelInit(t_mandel *mandel)
 {
-	mandel->quality = 100;
-	mandel->hexa = 1;
-	mandel->octa = 8;
-	mandel->right_left = 2;
-	mandel->zoom_in = 4;
-	mandel->up_down = 2;
+	t_rgb **tex;
+	
+	tex  = 0;
+	mandel->scale = 1./256;
+	mandel->cx = -.6;
+	mandel->cy = 0;
+	mandel->color_rotate = 0;
+	mandel->saturation = 1;
+	mandel->invert = 0;
+	mandel->max_iter = 256;
 }
 
 void	mandelbrot(t_mandel *mandel,t_mlx *mlx)
@@ -34,21 +38,21 @@ void	mandelbrot(t_mandel *mandel,t_mlx *mlx)
         	mandel->c_im  = (mandel->row - HEIGHT / mandel->up_down) * mandel->zoom_in / WIDTH;
         	mandel->x = 0;
 			mandel->y = 0;
-        	mandel->iteration = 0;
-        	while (mandel->x * mandel->x + mandel->y * mandel->y <= 4 && mandel->iteration < mandel->quality)
+        	mandel->max_iter = 0;
+        	while (mandel->x * mandel->x + mandel->y * mandel->y <= 4 && mandel->max_iter < mandel->quality)
 			{
             	mandel->x_new = (mandel->x * mandel->x) - (mandel->y * mandel->y) + mandel->c_re;
             	mandel->y = (2 * mandel->x * mandel->y) + mandel->c_im;
             	mandel->x = mandel->x_new;
-            	mandel->iteration++;
+            	mandel->max_iter++;
         	}
-			if (mandel->iteration < mandel->quality)
+			if (mandel->max_iter < mandel->quality)
 			{
-				mlx->img_core[mandel->row * WIDTH + mandel->col] = (mandel->iteration << mandel->hexa) | (mandel->iteration << mandel->octa) | (mandel->iteration);
+				mlx->img_core[mandel->row * WIDTH + mandel->col] = (mandel->max_iter << mandel->hexa) | (mandel->max_iter << mandel->octa) | (mandel->max_iter);
 
 			}
         	else 
-				mlx->img_core[mandel->row * WIDTH + mandel->col] = 0x000000;
+				mlx->img_core[mandel->row * WIDTH + mandel->col] = 0x033333;
     }
 
 	}

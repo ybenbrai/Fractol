@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/03 01:09:26 by ybenbrai          #+#    #+#             */
-/*   Updated: 2022/11/10 23:49:56 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2022/11/11 00:53:14 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int    keypress(int key, void *param)
     else if (key == 37)
         core->mandel->quality -= 1;
     if (key == 8)
-            core->mandel->hexa += 0.1;
+            core->mandel->hexa += 1;
     if (key == 69)
         {
-                core->mandel->zoom_in -= 0.01;
+                core->mandel->zoom_in -= 1;
         printf("zoom in ----->%f\n", core->mandel->zoom_in);
         }
 
