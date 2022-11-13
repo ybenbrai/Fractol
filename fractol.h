@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:49 by ybenbrai          #+#    #+#             */
-/*   Updated: 2022/11/11 18:46:11 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2022/11/13 15:41:01 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,14 @@
 #include "libft/libft.h"
 #include <mlx.h>
 
-// defining the width and heigh of the windows that display the image
-#define WIDTH 800
-#define HEIGHT 600
+#define WIDTH 700
+#define HEIGHT 700
 
-// defining some colors to make it possible to see with bare eyes
-//  # define black 0x000000
-//  # define white 0xffffff
-//  # define max 30
 typedef struct s_color
 {
 	unsigned char chan[3];
 } t_c;
 
-// the core structure
 typedef struct s_core
 {
 	void *mlx;
@@ -70,13 +64,21 @@ typedef struct s_core
 	double y2;
 } t_core;
 
-// core functions
-// void mandelbrot(t_mandel *mandel, t_mlx *mlx);
-//  void			mandelbrot(t_fractol *fractol);
+void			controls();
+void			check_arg(char *str, t_core *core);
+void			ft_window(t_core *core);
+void 			redrawing(t_core *core);
+void			fractolsInit(t_core *core);
+void 			fractolPicker(t_core *core);
+void 			ft_mandelbrotInit(t_core *core);
+void			mandelfx(t_core *core);
+int				keysMap(int key, t_core *core);
+int				colorsKeys(int key, t_core *core);
+int				directionsKeys(int key, t_core *core);
+int				moves(int x, int y, t_core *core);
+int				mouseKeys(int mousekey, int x, int y, t_core *core);
+void 			putimage(t_core *core, int x, int y, int color);
+int				closing(t_core *core);
+unsigned int	colormagic(int i, double x, double y);
 
-// keyboard binding functions
-int keypress(int key, void *param);
-
-// mouse binding function
-int mouse_press(int button, int x, int y, void *param);
 #endif

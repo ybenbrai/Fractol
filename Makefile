@@ -6,18 +6,16 @@
 #    By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/23 19:48:26 by kbahrar           #+#    #+#              #
-#    Updated: 2022/11/11 18:49:20 by ybenbrai         ###   ########.fr        #
+#    Updated: 2022/11/13 15:16:17 by ybenbrai         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-SRC =  main.c 
-#  mandelbrot.c tools.c 
-# mandelbrotTools.c
+SRC =  main.c checker.c mlx.c fractols.c mandelbrot.c colors.c  keys.c
 LIBF = libft/
 HEADER = fractol.h
 
-OBJS = $(patsubst %.c, %.o, $(SRC))
+OBJS = $(SRC:.c=.o)
 
 
 all: init $(NAME)
@@ -33,6 +31,7 @@ init:
 	
 clean:
 	make clean -C libft/
+	rm -rf $(OBJS)
 
 fclean: clean
 	make fclean -C libft/
