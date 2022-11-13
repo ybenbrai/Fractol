@@ -6,7 +6,7 @@
 /*   By: ybenbrai <ybenbrai@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 23:09:21 by ybenbrai          #+#    #+#             */
-/*   Updated: 2022/11/11 21:24:24 by ybenbrai         ###   ########.fr       */
+/*   Updated: 2022/11/13 14:21:11 by ybenbrai         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void check_arg(char *str, t_core *core)
 }
 void controls()
 {
-	ft_putendl("Fractols:\n1. mandel\n2. julia\n3. burningship\n");
+	ft_putendl("Fractols:\n1. mandelbrot\n2. julia\n3. burningship\n");
 	ft_putendl("Controls:\n");
 	ft_putendl("Move: Arrow Keys\nZoom: Page Up & Page Down");
 	ft_putendl("Mouse Zoom: Scrool Wheel");
@@ -231,7 +231,8 @@ void ft_window(t_core *core)
 	fractolsInit(core);
 	fractolPicker(core);
 	mlx_put_image_to_window(core->mlx, core->win, core->img, 0, 0);
-	mlx_key_hook(core->win, keysMapping, core);
+	// mlx_key_hook(core->win, keysMapping, core);
+	mlx_loop(core->mlx);
 }
 int main(int argc, char **argv)
 {
@@ -247,36 +248,8 @@ int main(int argc, char **argv)
 		check_arg(argv[1], core);
 		ft_window(core);
 	}
-
-	// if(argv[1]){
-	// if (ft_strcmp(check_arg(argv[1]),"Error") == 0)
-	// ft_exit("Error: Usage ./fractol [mandelbrot, julia, burningship]");
-	// core->mlx->mlx_ptr = mlx_init();
-	// core->mlx->win_ptr = mlx_new_window(core->mlx->mlx_ptr, WIDTH, HEIGHT, "fractol");
-	// core->mlx->img_ptr = mlx_new_image(core->mlx->mlx_ptr, WIDTH, HEIGHT);
-	// core->mlx->img_core = (int *)mlx_get_data_addr(core->mlx->img_ptr, &core->mlx->bpp, &core->mlx->size_l, &core->mlx->endian);
-	// if(ft_strcmp(check_arg(argv[1]),"mandelbrot") == 0){
-	// 	core->mandel = (t_mandel *)malloc(sizeof(t_mandel));
-	// 	mandelInit(core->mandel);
-	// 	mandelbrot(core->mandel, core->mlx);
-	// }
-	// // else if(check_arg(argv[1]) == "julia")
-	// // 	juliaInit(core);
-	// // else if(check_arg(argv[1]) == "burningship")
-	// 	mlx_hook(core->mlx->win_ptr, 2, 0, keypress, core);
-	// 	mlx_hook(core->mlx->win_ptr, 4, 0, mouse_press, core);
-	// // 	burningshipInit(core);
-	// mlx_loop(core->mlx->mlx_ptr);
-	// free(core->mlx);
-	// free(core->mandel);
-	free(core);
-	// calling mandelbrot now
-	//  mandelbrot(fractol);
-
-	// puts("hello");
-
-	// }
-	// else
-	// ft_exit("Error: Usage ./fractol [mandelbrot, julia, burningship]");
+	else{
+		controls();
+	}
 	return (0);
 }
